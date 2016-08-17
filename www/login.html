@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Material Design-->
+    <link rel="stylesheet" href="css/material.css">
+
+    <title>БлокарОпт</title>
+
+</head>
+<body>
+    <div id="download_polosa" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="display:none;"></div>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <main class="mdl-layout__content">
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <center>
+                        <img src="images/logo.png">
+                    </center>
+                        <h6><center>Введите пожалуйста выданный Вам логин и пароль для доступа к оптовому сайту</center></h6>
+</div>
+
+                <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <form action="#" id="FormAuth" >
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="login" class="mdl-textfield__input" />
+                                <label class="mdl-textfield__label" for="login">Логин</label>
+                            </div>
+                            <div id="LoginError" class="login-error"></div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="password" class="mdl-textfield__input" type="password" />
+                                <label class="mdl-textfield__label" for="password">Пароль</label>
+                            </div>
+                            <div id="passwordError" class="password-error"></div>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <center>
+                                <button id="button_auth_script" type="button" class="mdl-button mdl-button--raised mdl-button--colored">
+                                    Войти
+                                </button>
+                            </center>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <p style="text-align:center">- ИЛИ -</p>
+                            <p style="text-align:center">Для получения данных для входа на сайт свяжитесь пожалуйста с нашими менеджерами по телефонам:</p>
+                            <p style="text-align:center"><a href="tel:+79652523888">+7(965)252-38-88</a></p>
+                            <p style="text-align:center"><a href="tel:+79672057222">+7(967)205-72-22</a></p>
+                            <p style="text-align:center"><a href="tel:+79671723888">+7(967)172-38-88</a></p>
+                            <p style="text-align:center">или отправьте запрос по адресу</p>
+                            <p style="text-align:center"><a href="mailto:opt@blokart.su">opt@blokart.su</a></p>
+                        </div>
+</form>
+
+
+                </div>
+            </div>
+        </main>	
+
+        <dialog class="mdl-dialog" id="dialog_error_auth">
+            <h4 class="mdl-dialog__title">Ошибка</h4>
+            <div class="mdl-dialog__content">
+                <p>
+                    Неправильный логин или пароль
+                </p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">Закрыть</button>
+            </div>
+        </dialog>
+
+        <dialog class="mdl-dialog" id="dialog_no_ethernet">
+            <h4 class="mdl-dialog__title">Ошибка интернет соединения</h4>
+            <div class="mdl-dialog__content">
+                <center>
+                    <img src="images/connect_no.png">
+                </center>
+                <center>
+                    Ошибка интернет соединения
+                </center>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">Обновить страницу</button>
+            </div>
+        </dialog>
+
+    </div>
+
+    <div class="background_dialog"></div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+    <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <!-- Material Design-->
+    <script src="scripts/material.js"></script>
+
+</body>
+</html>

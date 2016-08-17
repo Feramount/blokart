@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Material Design-->
+    <link rel="stylesheet" href="css/material.css">
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+    <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="scripts/animateNumber.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+
+    <!-- Material Design-->
+    <script src="scripts/material.js"></script>
+
+    <title>FeramountHelper</title>
+
+</head>
+<body>
+    <div id="functionBack" style="display:none" f="" s="" p=""></div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+
+                <div class="material-icons mdl-badge mdl-badge--overlap material-icons-cart" data-badge="0" id="go_to_cart"><i class="material-icons">&#xE8CC;</i></div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon"
+                           for="search_text">
+                        <i class="material-icons">&#xE8B6;</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample"
+                               id="search_text">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="download_polosa" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style="display:none;"></div>
+        <div class="mdl-layout__drawer">
+            <div class="mdl-top_block">
+                <img src="images/user.jpg">
+                <div class="clear"></div>
+                <div class="login">Feramount, пользователь</div>
+                <div class="email">feramount@yandex.ru</div>
+            </div>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link listFriends_link" href="#" id="a_view_index"><i class="material-icons">&#xE88A;</i> Главная</a>
+                <a class="mdl-navigation__link" id="a_view_catalog" href="#"><i class="material-icons">&#xE8FE;</i> Каталог</a>
+                <a class="mdl-navigation__link" id="a_view_akcii" href="#"><i class="material-icons">&#xE8D0;</i> Акции</a>
+                <a class="mdl-navigation__link" id="a_view_goods_discounted" href="#"><i class="material-icons">&#xE855;</i> Распродажа</a>
+                <a class="mdl-navigation__link" id="a_view_cart" href="#"><i class="material-icons">&#xE854;</i> Корзина</a>
+                <a class="mdl-navigation__link" id="a_view_live" href="#"><i class="material-icons">&#xE87D;</i> Отложенные товары</a>
+                <a class="mdl-navigation__link" id="a_view_contacts" href="#"><i class="material-icons">&#xE8F9;</i> Контакты</a>
+                <a class="mdl-navigation__link" id="a_view_form_message" href="#"><i class="material-icons">&#xE150;</i> Написать нам</a>
+                <a class="mdl-navigation__link" id="a_view_about" href="#"><i class="material-icons">&#xE88E;</i> О программе</a>
+                <a class="mdl-navigation__link" id="a_exit" href="#"><i class="material-icons">&#xE879;</i> Выход</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="index"></div>
+            <div class="catalog"></div>
+            <div class="good"></div>
+            <div class="akcii"> </div>
+            <div class="akcii_view"></div>
+            <div class="goods_discounted"></div>
+            <div class="live"></div>
+            <div class="contacts"></div>
+            <div class="about"></div>
+            <div class="view_form_message">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4>Напишите нам</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <form action="http://blokartopt.ru/api/" id="form_message" enctype="multipart/form-data">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows="5" id="feedback_text"></textarea>
+                                <label class="mdl-textfield__label" for="feedback">Введите текст сообщения</label>
+                           </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="FileFeedback[]">
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="FileFeedback[]">
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="FileFeedback[]">
+                            </div>
+                        </form>
+                     </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="send_message"><i class="material-icons">&#xE87F;</i> Отправить сообщение</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view_form_message_ok">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4>Напишите нам</h4>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <center><img src="images/ok_order.png" style="width: 100px;margin: 20px 0px;"></center>
+                    <center>Ваше сообщение успешно отправлено<p>В скором времени наши менеджеры свяжуться с Вами</center>
+                </div>
+            </div>
+            <div class="cart"></div>
+            <div class="order">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h4>Оформление заказа</h4>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <form action="http://blokartopt.ru/api/" id="form_order" enctype="multipart/form-data">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows="5" id="order_text"></textarea>
+                                <label class="mdl-textfield__label" for="feedback">Введите текст сообщения</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="docs[]">
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="docs[]">
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" name="docs[]">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="send_order"><i class="material-icons">&#xE870;</i> Отправить заказ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view_form_order_ok">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4>Заказ оформлен успешно</h4>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <center><img src="images/ok_order.png" style="width: 100px;margin: 20px 0px;"></center>
+                    <center>Ваш заказ отправлен нам успешно<p>В скором времени наши менеджеры свяжуться с Вами для уточнения заказа</center>
+                </div>
+            </div>
+            <div class="search"></div>
+</main>
+
+        <dialog class="mdl-dialog" id="dialog_cart_add">
+            <h4 class="mdl-dialog__title">Корзина</h4>
+            <div class="mdl-dialog__content">
+                <p>
+                    Товар успешно добавлен в корзину
+                </p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">Закрыть</button>
+            </div>
+        </dialog>
+
+        <dialog class="mdl-dialog" id="dialog_live_add">
+            <h4 class="mdl-dialog__title">Отложенные</h4>
+            <div class="mdl-dialog__content">
+                <p>
+                    Товар успешно добавлен в список отложенных товаров
+                </p>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">Закрыть</button>
+            </div>
+        </dialog>
+
+        <dialog class="mdl-dialog" id="dialog_no_ethernet">
+            <h4 class="mdl-dialog__title">Ошибка интернет соединения</h4>
+            <div class="mdl-dialog__content">
+                <center>
+                    <img src="images/connect_no.png">
+                </center>
+                <center>
+                    Ошибка интернет соединения
+                </center>
+            </div>
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">Обновить страницу</button>
+            </div>
+        </dialog>
+
+    </div>
+    <div class="background_dialog"></div>
+</body>
+</html>
