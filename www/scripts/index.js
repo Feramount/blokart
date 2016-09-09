@@ -18,8 +18,8 @@
         //проверяем необходимо ли делать редирект на страницу авторизации
         if (($.cookie('user') == '') || ($.cookie('user') == undefined) || ($.cookie('user') == 'null'))
         {
-            alert(window.location.pathname);
-            if ((window.location.pathname != '/login.html') && (window.location.pathname != '/android_asset/www/login.html'))
+            var pos = window.location.pathname.indexOf('login.html');
+            if (pos === false)
             {
                 document.location.href = 'login.html';
             }
