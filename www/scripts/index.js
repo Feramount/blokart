@@ -1292,7 +1292,11 @@
                         $('.material-icons-cart').attr('data-badge','0');
                         HideAllShowOne('view_form_order_ok');
                     }
-                    else {
+                    else 
+                    {
+                        alert(xhr);
+                        alert(xhr.status);
+                        alert(xhr.statusText);
                         dialog_show('dialog_no_ethernet');
                     }
                 }
