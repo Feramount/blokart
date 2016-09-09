@@ -235,3 +235,8 @@ dialog
 
 @media screen and (orientation: landscape) {
 }
+.button_back
+{
+     padding: 10px;
+    display: none;   
+}
