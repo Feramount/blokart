@@ -203,7 +203,7 @@ form
 }
 dialog
 {
-    position:relative;
+    position:absolute;
     margin:0px;
     z-index:99999;
     background:white;
