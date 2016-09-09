@@ -71,6 +71,7 @@
             document.getElementById("a_view_cart").addEventListener("click", view_cart);
             document.getElementById("send_order").addEventListener("click", send_order);
             document.getElementById("go_to_cart").addEventListener("click", view_cart);
+            document.getElementById("button_back").addEventListener("click", onBackKeyDown);
             document.getElementById("search_text").addEventListener("oninput", function ()
             {
                 waitStart();
@@ -1531,14 +1532,17 @@
             ($('.live').css('display') == 'block'))
         {
             HideAllShowOne('index');
+            $('#button_back').hide();
        }
        else if ($('.akcii_view').css('display') == 'block')
        {
            HideAllShowOne('akcii');
+           $('#button_back').show();
        }
        else if ($('.order').css('display') == 'block')
        {
            HideAllShowOne('cart');
+           $('#button_back').show();
        }
        else if ($('#functionBack').attr('f') == 'view_index')
        {
@@ -1551,6 +1555,7 @@
            var p = $('#functionBack').attr('p');
            var js = f + '(' + s + ', ' + p + ');';
            eval(js);
+           $('#button_back').show();
        }
     }
 
