@@ -19,7 +19,6 @@
         if (($.cookie('user') == '') || ($.cookie('user') == undefined) || ($.cookie('user') == 'null'))
         {
             var pos = window.location.pathname.indexOf('login.html');
-            alert(pos);
             if ((pos === false)||(pos == -1))
             {
                 document.location.href = 'login.html';
