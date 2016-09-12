@@ -1,4 +1,4 @@
-﻿// For an introduction to the Blank template, see the following documentation:
+// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
@@ -164,7 +164,9 @@
     {
         waitStart();
         HideAllShowOne('index');
-        HideInputSearch()
+        HideInputSearch();
+        console.log($('#button_back'));
+        $('#button_back').hide();
 
         var url = 'http://blokartopt.ru/api/?action=index';
         var html = '';
@@ -181,7 +183,8 @@
     {
         waitStart();
         HideAllShowOne('about');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var url = 'http://blokartopt.ru/api/?action=about';
         var html = '';
@@ -200,7 +203,8 @@
     {
         waitStart();
         HideAllShowOne('catalog');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         sub = parseInt(sub);
         if ((sub == 0)||(isNaN(sub) == true))
@@ -319,6 +323,7 @@
     /*Функция показывает информацию по товару по его коду*/
     function view_good(code, functionName, page, sub)
     {
+        $('#button_back').show();
         $('#functionBack').attr('f', functionName).attr('s', sub).attr('p', page);
         var user = $.cookie('User_ID');
         var url = 'http://blokartopt.ru/api/?action=good&code=' + code + '&user=' + user;
@@ -529,10 +534,12 @@
         }).fail(function () { dialog_show('dialog_no_ethernet'); });
     }
 
-    function view_akcii() {
+    function view_akcii()
+    {
         waitStart();
         HideAllShowOne('akcii');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var url = 'http://blokartopt.ru/api/?action=akcii';
         var html = '';
@@ -575,7 +582,8 @@
     {
         waitStart();
         HideAllShowOne('akcii_view');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var url = 'http://blokartopt.ru/api/?action=akcii&id=' + Message_ID;
         var html = '';
@@ -614,7 +622,8 @@
     {
         waitStart();
         HideAllShowOne('goods_discounted');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         if (page == undefined)
         {
@@ -686,7 +695,8 @@
     {
         waitStart();
         HideAllShowOne('live');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var user = $.cookie('User_ID');
         var html = '';
@@ -764,7 +774,8 @@
     {
         waitStart();
         HideAllShowOne('contacts');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var url = 'http://blokartopt.ru/api/?action=contacts';
         var html = '';
@@ -781,13 +792,15 @@
         $('#form_message').trigger('reset');
         HideInputSearch()
         HideAllShowOne('view_form_message');
+        $('#button_back').show();
     }
 
     function view_cart()
     {
         waitStart();
         HideAllShowOne('cart');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
 
         var user = $.cookie('User_ID');
         var html = '';
@@ -871,13 +884,16 @@
     function view_order()
     {
         HideAllShowOne('order');
-        HideInputSearch()
+        HideInputSearch();
+        $('#button_back').show();
     }
 
     function view_search(sub, page)
     {
         HideAllShowOne('search');
         waitStart();
+        $('#button_back').show();
+
         if ((page == '') || (page == undefined)) {
             page = 1;
         }
@@ -1547,6 +1563,7 @@
        else if ($('#functionBack').attr('f') == 'view_index')
        {
            HideAllShowOne('index');
+           $('#button_back').hide();
        }
        else
        {
