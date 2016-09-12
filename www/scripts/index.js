@@ -165,7 +165,6 @@
         waitStart();
         HideAllShowOne('index');
         HideInputSearch();
-        console.log($('#button_back'));
         $('#button_back').hide();
 
         var url = 'http://blokartopt.ru/api/?action=index';
