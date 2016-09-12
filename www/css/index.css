@@ -238,7 +238,6 @@ dialog
 #button_back
 {
      padding: 10px;
-    display: none;   
     float:left;
     position:absolute;
 }
