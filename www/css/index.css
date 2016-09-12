@@ -237,6 +237,7 @@ dialog
 }
 #button_back
 {
-     padding: 10px;
+    padding: 0px;
     float:left;
+    font-size: 36px;
 }
