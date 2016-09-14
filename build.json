@@ -7,5 +7,15 @@
              "password" : "11400115",
              "keystoreType": ""
          }
-     }
+     },
+     "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Development",
+            "provisioningProfile": "24adcf81-7462-4226-9b42-8b48f0ace0f6"
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "provisioningProfile": "f7ff2e77-0d44-46ae-84a6-d6f20b4aefa6"
+        }
+    }
  }
