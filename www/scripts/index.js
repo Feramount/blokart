@@ -26,6 +26,33 @@
             else
             {
                 document.getElementById("button_auth_script").addEventListener("click", clickAuth);
+
+                // мы сейчас находимся на странице авторизации.
+                // проверяем есть ли логин с паролем и если есть авторизовываемся
+                console.log(window.localStorage.p);
+                var l = window.localStorage.l;
+                var p = window.localStorage.p;
+                if ((l != '') && (p != ''))
+                {
+                    var url = "http://blokartopt.ru/api/?action=auth&Login=" + l + "&Password=" + p;
+                    console.log(url);
+                    $.get(url, function (data)
+                    {
+                        if ((data == "0") || (data == 0))
+                        {
+                        }
+                        else
+                        {
+                            var obj = jQuery.parseJSON(data);
+                            $.cookie('user', obj.Login);
+                            $.cookie('User_ID', obj.User_ID);
+                            $.cookie('PermissionGroup_ID', obj.PermissionGroup_ID);
+                            $.cookie('Email', obj.Email);
+                            document.location.href = 'index.html';
+                        }
+                    }).fail(function () { dialog_show('dialog_no_ethernet'); });
+                }
+
             }
         }
         else
@@ -140,6 +167,8 @@
                 }
                 else
                 {
+                    window.localStorage.setItem("l", Login);
+                    window.localStorage.setItem("p", Password);
                     var obj = jQuery.parseJSON(data);
                     $.cookie('user', obj.Login);
                     $.cookie('User_ID', obj.User_ID);
@@ -217,6 +246,7 @@
         }
         var user = $.cookie('User_ID');
         var url = 'http://blokartopt.ru/api/?action=subdivisions&sub=' + sub;
+        console.log(url);
         var html = '';
         $('.catalog').html('');
         $.getJSON(url, function (data)
@@ -1524,6 +1554,8 @@
         $.cookie('User_ID', '');
         $.cookie('PermissionGroup_ID', '');
         $.cookie('Email', '');
+        window.localStorage.setItem("l", '');
+        window.localStorage.setItem("p", '');
         document.location.href = 'login.html';
     }
 
